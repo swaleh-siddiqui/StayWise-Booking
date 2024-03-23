@@ -1,0 +1,29 @@
+.container{
+    padding: 1rem 5rem;
+}
+
+h1{
+    margin-bottom: 1rem;
+}
+
+form{
+    border: none !important;
+}
+
+label{
+    margin-left: .5rem;
+    font-weight: 700;
+}
+
+input{
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid black !important;
+
+}
+
+
+.row div{
+    margin-bottom: 1rem;
+}

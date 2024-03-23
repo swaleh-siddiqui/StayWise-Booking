@@ -1,0 +1,35 @@
+.container{
+    padding: 1rem 5rem;
+}
+
+
+label{
+    font-weight: 700;
+}
+
+.stars{
+    margin: .5rem 0rem;
+}
+
+.stars i{
+    font-size: 1.5rem;
+}
+
+
+.b1 {
+    color: rgb(0, 148, 197);
+}
+
+textarea{
+    margin-bottom: 1rem;
+}
+
+.btn{
+    background-color: rgb(0, 148, 197) !important;
+    border: none !important;
+    transition: .2s;
+}
+
+.btn:hover{
+    background-color: rgb(0, 119, 159) !important;
+}

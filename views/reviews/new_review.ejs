@@ -1,0 +1,33 @@
+<% layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/new_review.css">
+<body>
+    
+    <div class="container">
+        <h1>Leave a Review</h1>
+
+    <form action="/listings/<%= listingid %>/review" method="post" novalidate class="needs-validation ">
+        <div class="row">
+            <div class="col-sm-8">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="range" min="1"  max="5" id="rating" class="form-range" name="ob[rating]" value="1"  required>
+                <div class="stars">
+                    <i class="fa fa-star b1"></i>
+                    <i class="fa fa-star b2"></i>
+                    <i class="fa fa-star b3"></i>
+                    <i class="fa fa-star b4"></i>
+                    <i class="fa fa-star b5"></i>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <label for="comment" class="form-label">Comment</label>
+                <textarea id="rating" class="form-control" name="ob[comment]" required></textarea>
+            </div>
+        </div>
+
+        <button class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+
+   <script src="/js/stars.js"></script>
+</body>
