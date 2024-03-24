@@ -4,7 +4,7 @@
     
     <div class="container">
         <h1>Create new Listing</h1>
-    <form action="/listings" method="post" novalidate class="needs-validation ">
+    <form action="/listings" method="post" novalidate class="needs-validation " enctype="multipart/form-data">
         <div class="row">
             <div class="col-sm-12">
                 <label for="title" class="form-label">Title</label>
@@ -30,7 +30,7 @@
             </div>
             <div class="col-sm-12">
                 <label for="image" class="form-label">image Url</label>
-                <input type="text" id="image" class="form-control" name="ob[image]" placeholder="Enter img url" >
+                <input type="file" id="image" class="form-control" name="ob[image]" placeholder="Enter img url" >
             </div>
         </div>
 
