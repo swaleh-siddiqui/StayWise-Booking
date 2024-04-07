@@ -8,7 +8,7 @@
                 <a href="/listings/<%= listing._id %>">
                     <div class="card">
                         <div class="img">
-                            <img src="<%= listing.image %>" class="card-img-top" alt="..." >
+                            <img src="<%= listing.image.url %>" class="card-img-top" alt="..." >
                             <div class="shade"></div>
                         </div>
                         <div class="card-img-overlay">
@@ -17,7 +17,7 @@
                             </h4>
                         </div>
                         <div class="card-body">
-                          <p class="card-text" style="font-weight: 700; font-size: .9rem;"><%= listing.country %></p>
+                          <p class="card-text" style="font-weight: 700; font-size: .9rem;"><%= listing.location %>, <%= listing.country %></p>
                           <p class="card-text"><%= listing.location %></p>
                           <p class="card-text" style="font-weight: 700;">&#8377;<%= listing.price.toLocaleString("en-in") %> /night</p>
                         </div>

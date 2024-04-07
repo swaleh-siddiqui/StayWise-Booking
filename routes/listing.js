@@ -1,13 +1,16 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const upload  = multer({dest : "uploads/"});
+const {cloudinary} = require("../cloudconfig.js");
+const {storage} = require("../cloudconfig.js");
+const upload  = multer({storage});
 
 const Listing = require("../models/listing.js");
 
 const wrapAsync = require("../utils/wrapasync.js");
 
 const {isLoggedIn, isOwner, validateListing} = require("../middlewares.js");
+
 
 
 
@@ -26,13 +29,17 @@ router.get("/new", isLoggedIn ,  (req,res) => {
     res.render("./listings/new_listing.ejs")
 })
 
-router.post("",isLoggedIn, validateListing, wrapAsync( async (req,res) => {
-    const newlisting = new Listing(req.body.ob)
+router.post("",isLoggedIn,   upload.single("ob[image]"), validateListing, wrapAsync( async (req,res) => {
+    let url = req.file.path;
+    let filename = req.file.filename;
+    const newlisting = new Listing(req.body.ob);
+    newlisting.image = {url , filename};
     newlisting.owner = req.user._id;
     await newlisting.save();
     req.flash("success", "New listing created");
     res.redirect("/listings");
 }))
+
 
 // show listing
 router.get("/:id", wrapAsync(async (req,res) => {
@@ -66,9 +73,15 @@ router.get("/:id/edit", isLoggedIn, isOwner ,  wrapAsync(async (req,res) => {
 }))
 
 
-router.patch("/:id" , isLoggedIn, isOwner, validateListing, wrapAsync(async (req,res) => {
+router.patch("/:id" , isLoggedIn, isOwner, upload.single("ob[image]"), validateListing, wrapAsync(async (req,res) => {
     let {id} = req.params;
-    await Listing.findByIdAndUpdate(id, {...req.body.ob});
+    const listing = await Listing.findByIdAndUpdate(id, {...req.body.ob});
+    if (typeof(req.file) != "undefined"){
+        let url = req.file.path;
+        let filename = req.file.filename;
+        listing.image = {url,filename};
+        await listing.save();
+    }
     req.flash("success", "Listing updated");
     res.redirect("/listings/" +id);
 }))
@@ -86,3 +99,10 @@ router.delete("/:id" , isLoggedIn, isOwner, wrapAsync(async (req,res) => {
 
 
 module.exports = router;
+
+
+
+
+
+
+

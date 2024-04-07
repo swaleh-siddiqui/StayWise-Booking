@@ -13,7 +13,7 @@ a{
     margin-bottom: 1rem;
 }
 .card img{
-    height: 15rem;
+    height: 18rem;
     border-radius: 1rem;
     position: relative;
 }
@@ -39,6 +39,10 @@ a{
     opacity: 0;
     transition: .3s;
     z-index: 2;
+}
+
+.card-title{
+    font-size: 1.5rem !important;
 }
 
 .card:hover .card-img-overlay h4{

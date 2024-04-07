@@ -1,0 +1,29 @@
+.show{
+    padding: 1.3rem 1.5rem !important;
+    width: 100%;
+}
+
+ul{
+    margin: 0 !important;
+    padding: 0;
+}
+
+h1{
+    font-size: 1.5rem;
+    font-weight: 700 !important;
+    letter-spacing: .1rem;
+}
+
+.img{
+    width: 100%;
+    height: 45vw;
+    background-size: cover !important;
+    background-position: -20% !important;
+    border-radius: .5rem;
+    margin: 1.5rem 0;
+}
+
+.show .location{
+    font-weight: 700;
+    margin-bottom: 0;
+}
